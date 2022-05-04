@@ -10,7 +10,7 @@ import com.sun.istack.NotNull;
 
 @Entity
 @Table(name = "user")
-public class user  {//implements UserDetails
+public class user { 
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
