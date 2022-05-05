@@ -36,15 +36,15 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public user getUser(String userName) throws Exception {
 	
-//		String methodName = "getUser()";
-////		logger.info(methodName = + "called");
-//		Optional<user> optional = userRepo.findByUserName(userName);
-//		if(optional.isEmpty()) {
-//			//System.out.println("User is not present in database");
-//			throw new Exception("User not Exists");
-//		}
-//		user user = optional.get();
-		return null;
+		String methodName = "getUser()";
+//		logger.info(methodName = + "called");
+		Optional<user> optional = userRepo.findByUserName(userName);
+		if(Optional.empty() != null) {
+			
+			throw new Exception("User does not Exists");
+		}
+		user user = optional.get();
+		return user;
 
 	}
 
