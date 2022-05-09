@@ -28,23 +28,29 @@ public class UserServiceImpl implements UserService {
 	
 	
 	@Override
-	public user createUser(user user, Set<userRole> userRole) throws Exception {
+	public user createUser(user user) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public user getUser(String userName) throws Exception {
+	public user getUser(Integer userId) throws Exception {
 	
 		String methodName = "getUser()";
 //		logger.info(methodName = + "called");
-		Optional<user> optional = userRepo.findByUserName(userName);
-		if(Optional.empty() != null) {
-			
-			throw new Exception("User does not Exists");
+		Optional<user> optional = userRepo.findById(userId);
+		
+		user user1 = optional.get();
+		
+		if(optional.isPresent())
+		{
 		}
-		user user = optional.get();
-		return user;
+		else
+		{
+			throw new Exception("User does not exist");
+		}
+		return user1;
+		
 
 	}
 
@@ -68,6 +74,12 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<user> findAllUsers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<user> findById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

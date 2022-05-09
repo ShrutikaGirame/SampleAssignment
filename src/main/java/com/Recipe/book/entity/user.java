@@ -19,16 +19,13 @@ public class user {
 	private int userId;
 	
 	@NotNull
-	private String userName;
-	
-	@NotNull
-	private String password;
-	
-	@NotNull
 	private String firstName;
 	
 	@NotNull
 	private String lastName;
+	
+	@NotNull
+	private String password;
 	
 	private boolean enabled = true;
 	
@@ -40,12 +37,6 @@ public class user {
 	}
 	public void setUserId(int userId) {
 		this.userId = userId;
-	}
-	public String getUserName() {
-		return userName;
-	}
-	public void setUserName(String userName) {
-		this.userName = userName;
 	}
 	public String getPassword() {
 		return password;
@@ -69,7 +60,6 @@ public class user {
 	public user(int userId, String userName, String password, String firstName, String lastName) {
 		super();
 		this.userId = userId;
-		this.userName = userName;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
