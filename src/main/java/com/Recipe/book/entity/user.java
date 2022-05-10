@@ -12,26 +12,30 @@ import com.sun.istack.NotNull;
 @Table(name = "user")
 public class user { 
 
+	
+
+	public user() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "user_id")
 	@NotNull
 	private int userId;
-	
-	@NotNull
+	private String userName;
 	private String firstName;
-	
-	@NotNull
 	private String lastName;
-	
-	@NotNull
 	private String password;
+	private String userRole;
 	
-	private boolean enabled = true;
-	
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
 	public int getUserId() {
 		return userId;
 	}
@@ -57,24 +61,20 @@ public class user {
 		this.lastName = lastName;
 	}
 	
-	public user(int userId, String userName, String password, String firstName, String lastName) {
-		super();
-		this.userId = userId;
-		this.password = password;
-		this.firstName = firstName;
-		this.lastName = lastName;
-
-	}
-	public user() {
-		super();
-		
-	}
-	
-	private String userRole;
 	public String getUserRole() {
 		return userRole;
 	}
 	public void setUserRole(String userRole) {
 		this.userRole = userRole;
 	}
+	public user(int userId, String userName, String firstName, String lastName, String password, String userRole) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.password = password;
+		this.userRole = userRole;
+	}
+
 }

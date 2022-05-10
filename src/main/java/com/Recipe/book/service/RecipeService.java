@@ -15,4 +15,8 @@ public interface RecipeService {
 	
 	recipes deleterecipe(Integer recipeId);
 
+	Object recipesList();
+
+	Object findAll();
+
 }

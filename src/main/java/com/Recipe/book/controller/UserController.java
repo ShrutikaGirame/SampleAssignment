@@ -1,6 +1,7 @@
 package com.Recipe.book.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,21 +18,25 @@ import com.Recipe.book.service.UserService;
 public class UserController {
 
 	@Autowired
-	private UserService userservice;
+	private UserService userService;
 	
 	@GetMapping("/get/{id}")
 public user findUserById(@PathVariable(value = "id") int id) throws Exception{
-	user user = userservice.getUser(id);
+	user user = userService.getUser(id);
 	return user;
 		
 	}
 	
-	@PostMapping("/Save")
+	@PostMapping("/Create")
 	public user createUser(@RequestBody user user) throws Exception {
-		user user1 = userservice.createUser(user);
-		return user1;
+		user user1 = userService.createUser(user);
 		
+		return user1;
 	}
 	
+	@DeleteMapping("/Delete/{id}")
+	public void deleteUser(@PathVariable(value = "id") int id) {
+		 userService.deleteUser(id);
+}
 
 }

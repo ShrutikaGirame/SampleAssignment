@@ -31,7 +31,7 @@ public class recipes {
 	
 	private String instructions;
 	
-	private Category category;
+	private String category;
 	
 	
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "dd-mm-yyyy")
@@ -67,11 +67,11 @@ public class recipes {
 		this.instructions = instructions;
 	}
 
-	public Category getCategory() {
+	public String getCategory() {
 		return category;
 	}
 
-	public void setCategory(Category category) {
+	public void setCategory(String category) {
 		this.category = category;
 	}
 
@@ -107,7 +107,7 @@ public class recipes {
 				+ "]";
 	}
 
-	public recipes(int recipeId, String recipeName, String instructions, Category category, LocalDate date, int serving,
+	public recipes(int recipeId, String recipeName, String instructions, String category, LocalDate date, int serving,
 			Ingredients ingredients) {
 		super();
 		this.recipeId = recipeId;
