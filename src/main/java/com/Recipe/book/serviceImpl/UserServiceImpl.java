@@ -1,10 +1,10 @@
 package com.Recipe.book.serviceImpl;
 
-import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.Recipe.book.ExceptionHandling.UserNotFoundException;
 import com.Recipe.book.Repository.UserRepo;
 import com.Recipe.book.entity.user;
 import com.Recipe.book.service.UserService;
@@ -24,21 +24,20 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public user getUser(Integer userId) throws Exception {
+	public user getUser(Integer userId) throws UserNotFoundException {
 	
 		Optional<user> optional = userRepo.findById(userId);
 		
-		user user1 = optional.get();
+		
 		
 		if(optional.isPresent())
 		{
+			user user1 = optional.get();
+			return user1;
 		}
-		else
-		{
-			throw new Exception("User does not exist");
+		else {
+			throw new UserNotFoundException("User Doesn't Exist");
 		}
-		return user1;
-		
 
 	}
 
@@ -48,16 +47,6 @@ public class UserServiceImpl implements UserService {
 		
 	}
 
-	@Override
-	public List<user> findAllUsers() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public Optional<user> findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

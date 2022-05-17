@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.Recipe.book.ExceptionHandling.UserNotFoundException;
 import com.Recipe.book.entity.user;
 import com.Recipe.book.service.UserService;
 
@@ -21,7 +22,7 @@ public class UserController {
 	private UserService userService;
 	
 	@GetMapping("/get/{id}")
-public user findUserById(@PathVariable(value = "id") int id) throws Exception{
+public user findUserById(@PathVariable(value = "id") int id) throws UserNotFoundException{
 	user user = userService.getUser(id);
 	return user;
 		
