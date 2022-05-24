@@ -41,7 +41,7 @@ public class RecipeController {
 	@PutMapping("Update/{id}")
 	public recipes updaterecipe(@PathVariable(value = "id")int id,@RequestBody recipes recipe) {
 		
-		recipes Updated = recipeService.updaterecipe(recipe, id);
+		recipes Updated = recipeService.updaterecipe(id, recipe);
 		return Updated;
 		
 	}

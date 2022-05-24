@@ -42,7 +42,7 @@ public class RecipeServiceImpl implements RecipeService{
 	}
 
 	@Override
-	public recipes updaterecipe(recipes recipe, int id) {
+	public recipes updaterecipe(int id,recipes recipe) {
 	recipes newrecipe = recipeRepo.findById(id).get();
 	newrecipe.setInstructions(recipe.getInstructions());
 		return recipeRepo.save(newrecipe);

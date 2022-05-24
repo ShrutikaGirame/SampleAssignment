@@ -12,7 +12,7 @@ public interface RecipeService {
 	
 	recipes createrecipe(recipes recipe);
 	
-	recipes updaterecipe(recipes recipe, int id);
+	recipes updaterecipe(int id, recipes recipe);
 
 	void deleteRecipe(int recipeId);
 
