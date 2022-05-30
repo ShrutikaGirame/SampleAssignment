@@ -21,7 +21,7 @@ import com.Recipe.book.service.RecipeService;
 
 @SpringBootTest
 
-public class RecipesTest {
+public class RecipesTest extends BookApplicationTests{
 	
 	@MockBean
 	RecipeRepo recipeRepo;
